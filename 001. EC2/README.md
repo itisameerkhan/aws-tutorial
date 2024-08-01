@@ -86,4 +86,10 @@ T2 instances are burstable instances, meaning the CPU performs at a baseline, sa
 
 Amazon EC2 uses public–key cryptography to encrypt and decrypt login information. Public–key cryptography uses a public key to encrypt a piece of data, such as a password, then the recipient uses the private key to decrypt the data. The public and private keys are known as a key pair.
 
-## ⚡ Auto Scaling
+## ⚡ Elastic Load Balancing
+
+Elastic Load Balancing (ELB) is a service provided by AWS that automatically distributes incoming application traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones (AZs). It helps ensure that the application is highly available, fault-tolerant, and scalable.
+
+## ⚡ Elastic IP Address
+
+Elastic IP Addresses are static, public IPv4 addresses designed for dynamic cloud computing. They are associated with your AWS account and can be used to mask the failure of an instance or software by remapping the address to another instance within the same region.
