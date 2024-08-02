@@ -125,3 +125,57 @@ Here is a table showing the IP ranges from `10.0.0.0/32` to `10.0.0.0/0` along w
 ---
 
 ## ⭐ Public and Private Address
+
+
+
+| **Aspect**           | **Public IP Address**                                       | **Private IP Address**                                   |
+|----------------------|--------------------------------------------------------------|----------------------------------------------------------|
+| **Scope**            | Global, accessible from anywhere on the internet            | Local, accessible only within a specific network         |
+| **Assignment**       | Assigned by ISP or cloud provider                            | Assigned by router or network administrator               |
+| **Visibility**       | Exposed to the public internet                               | Hidden from the public internet; only visible within local network |
+| **Range**            | Any IP address not within private IP ranges                  | Specific ranges (e.g., `10.0.0.0` to `10.255.255.255`)  |
+| **Usage**            | Used to identify and communicate with devices across the web | Used for internal communication within a private network |
+| **Example**          | `8.8.8.8` (Google's DNS server)                              | `192.168.1.10` (common for devices on a home network)     |
+
+
+## ⭐ 2-Tier and 3-Tier Architecture
+
+
+| **Aspect**            | **2-Tier Architecture**                               | **3-Tier Architecture**                              |
+|-----------------------|-------------------------------------------------------|------------------------------------------------------|
+| **Structure**         | Client Tier and Server Tier                          | Presentation Layer, Application Layer, Data Layer   |
+| **Components**        | - Client Application                                  | - Client Application                                |
+|                       | - Server (Application + Database)                     | - Application Server                                |
+|                       |                                                       | - Database Server                                   |
+| **Example in AWS**    | - Client: Web or mobile app                           | - Presentation Layer: Static site on Amazon S3      |
+|                       | - Server: EC2 instance with local database            | - Application Layer: EC2 instance or AWS Lambda     |
+|                       |                                                       | - Data Layer: RDS instance or DynamoDB              |
+| **Pros**              | - Simplicity                                          | - Scalability: Each layer can be scaled independently|
+|                       | - Cost-Effective                                      | - Flexibility: Easy to update or replace layers     |
+|                       |                                                       | - Maintenance: Issues isolated to specific layers   |
+| **Cons**              | - Scalability: Limited, as both application and data are tied together | - Complexity: More components to manage            |
+|                       | - Maintenance: Changes affect the entire system       | - Cost: Potentially higher due to multiple services |
+
+### ⚡ 3-Tier Architecture
+
+<div align="center">
+<img src="https://stratus10.com/sites/default/files/2021-11/3-tier-infrastructure-aws.png" />
+</div>
+
+---
+
+## ⭐ STEPS TO CREATE AND SET UP A VPC IN AWS ENVIRONMENT
+
+1. Create a own VPC
+
+2. Create a public and Private subnet for different available Availability zones by assigning CIDR blocks.
+3. Create Internet getaway and attach it to the VPC
+4. Create routing table one as public and Oneness Private by associating the appropriate subnets to it.
+5. Edit the public route tables route alone and map the IGW Internet gateway not the private and leave it as it is
+6. Create two security groups - one for the public [Edit the Inbound rules with RDP, HTTP/HTTPS, SSH, and map `0.0.0.0/0` in the source] and one for ther private [Edit the inbound rules and map the SG of public in the source]
+7. create two EC2s one in public and one in private subnets with proper security groups.
+8. Login into public and check the internet connection.
+9. Create NAT gateway with new Elastic IP for the internet connection in the private subnet. map it to private RT.
+10. Now login into the private EC2 and verify the connectivity and internet facility.
+
+(23.34)
