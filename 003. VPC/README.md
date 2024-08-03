@@ -177,5 +177,3 @@ Here is a table showing the IP ranges from `10.0.0.0/32` to `10.0.0.0/0` along w
 8. Login into public and check the internet connection.
 9. Create NAT gateway with new Elastic IP for the internet connection in the private subnet. map it to private RT.
 10. Now login into the private EC2 and verify the connectivity and internet facility.
-
-(23.34)
