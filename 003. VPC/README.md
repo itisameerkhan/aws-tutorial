@@ -43,7 +43,8 @@ IP_address/Subnet_prefix_length
 
 `10.0.0.0/24`: --> `10.0.0.0` to `10.0.0.255`
 
-![demo](./ASSETS/demo1.png)
+![demo](../ASSETS/demo1.png)
+
 
 Here is a table showing the IP ranges from `10.0.0.0/32` to `10.0.0.0/0` along with the total number of IPs for each range:
 
@@ -170,10 +171,21 @@ Here is a table showing the IP ranges from `10.0.0.0/32` to `10.0.0.0/0` along w
 
 2. Create a public and Private subnet for different available Availability zones by assigning CIDR blocks.
 3. Create Internet getaway and attach it to the VPC
-4. Create routing table one as public and Oneness Private by associating the appropriate subnets to it.
+4. Create Routing Table (RT)   one as public and one as Private by associating the appropriate subnets to it.
 5. Edit the public route tables route alone and map the IGW Internet gateway not the private and leave it as it is
 6. Create two security groups - one for the public [Edit the Inbound rules with RDP, HTTP/HTTPS, SSH, and map `0.0.0.0/0` in the source] and one for ther private [Edit the inbound rules and map the SG of public in the source]
 7. create two EC2s one in public and one in private subnets with proper security groups.
 8. Login into public and check the internet connection.
 9. Create NAT gateway with new Elastic IP for the internet connection in the private subnet. map it to private RT.
 10. Now login into the private EC2 and verify the connectivity and internet facility.
+
+---
+
+### ⚡ Internet Gateway
+
+An Internet Gateway is a horizontally scaled, redundant, and highly available AWS-managed component that enables communication between instances in a VPC and the internet. It provides a target in your VPC route tables for internet-routable traffic, and it performs network address translation (NAT) for instances that have been assigned public IP addresses.
+
+251
+NAT Gateway
+
+![demo](../ASSETS/demo2.png)
