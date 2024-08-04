@@ -189,3 +189,8 @@ An Internet Gateway is a horizontally scaled, redundant, and highly available AW
 NAT Gateway
 
 ![demo](../ASSETS/demo2.png)
+
+*nat 
+elastic ip
+ec2
+vpc*
