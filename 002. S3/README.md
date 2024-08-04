@@ -143,6 +143,65 @@ Besides traditional transfer practices that are over the internet, AWS has 2 mor
 <img src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*7zMS7eiDp99Q8YaMnePm2g.png" />
 </div>
 
+### ⚡ Transfer Acceleration
+
 **Transfer Acceleration** enables fast, easy and secure transfers over long distances by exploiting Amazon’s CloudFront edge technology.
 
 **CloudFront** is a caching service by AWS, in which the data from client site gets transferred to the nearest edge location and from there the data is routed to your AWS S3 bucket over an optimized network path.
+
+### ⚡ Snowball
+
+<div align="center">
+<img src="https://www.storagereview.com/wp-content/uploads/2023/05/StorageReview-Amazon-AWS-Snowball-8-1024x683.jpg" />
+</div>
+
+The Snowball is a way of transferring your data physically. In this Amazon sends a piece of equipment to your premises, on which you can load the data. It has a kindle attached to it which has your shipping address when it is shipped from Amazon. When data transfer is complete on the Snowball,
+
+kindle changes the shipping address back to the AWS headquarters where the Snowball has to be sent.
+
+The Snowball is ideal for customers who have large batches of data move. The average turnaround time for Snowball is 5–7 days, in the same time Transfer Acceleration can transfer up to 75 TB of data on a dedicated 1Gbps line. So depending on the use case, a customer can decide.
+
+Obviously, there will be some cost around it, let’s look at the overall costing around S3.
+
+## ⭐ Pricing
+
+As a part of the AWS Free Usage Tier, you can get started with AWS S3 for free. Upon sign up, new AWS customers receive 5 GB of Amazon S3 standard storage, 20,000 Get-Requests, 2,000 Put-Requests, and 15GB of data transfer out each month for one year.
+
+## ⭐ How S3 is Billed?
+
+Though having so many features, AWS S3 is affordable and flexible in its costing. It works on Pay Per Use, meaning, you only pay what you use. The table below is an example for pricing of S3 for a specific region:
+
+<div align="center">
+<img src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*ePx9Bf95h2dX1AUYOS1KdA.png" />
+</div>
+
+If you replicate 1,000 1 GB objects (1,000 GB) between regions you will incur a request charge of $0.005 (1,000 requests x $0.005 per 1,000 requests) for replicating 1,000 objects and a charge of $20 ($0.020 per GB transferred x 1,000 GB) for inter-region data transfer. After replication, the 1,000 GB will incur storage charges based on the destination region.
+
+Snowball, there are 2 variants:
+
+* Snowball 50 TB : 200$
+
+* Snowball 80 TB: 250$
+
+---
+
+
+## ⭐ AWS S3 Use case - Industry Media "IMDb"
+
+Let’s understand it through a real-time use case to assimilate all that we have learned so far: IMDb Internet Movie Database is a famous online database of information related to films, television programs, and video games.
+
+Let’s see how they exploit the AWS services:
+
+* To get the lowest possible latency, all possible results for a search are pre-calculated with a document for every combination of letters in the search. Each document is pushed to Amazon Simple Storage Service (S3) and thereby to Amazon CloudFront, putting the documents physically close to the users. The theoretical number of possible searches to calculate is mind-boggling — a 20-character search has 23 x 1030 combinations
+
+* But in practice, using IMDb’s authority on movie and celebrity data can reduce the search space to about 150,000 documents, which Amazon S3 and Amazon CloudFront can distribute in just a few hours.
+
+## ⭐ Hosting a static website on Amazon S3
+
+Project Statement - Hosting a Static Website on Amazon S3
+
+Let’s first understand: What is a static website?
+
+In short, it’s a website comprised of only HTML, CSS, and/or JavaScript. That means server-side scripts aren’t supported, so if you want to host a Rails or PHP app, you’ll need to look elsewhere.
+
+For simpler purposes, welcome to the wonderful world of hosting websites on AWS S3!
