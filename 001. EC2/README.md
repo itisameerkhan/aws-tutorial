@@ -93,3 +93,5 @@ Elastic Load Balancing (ELB) is a service provided by AWS that automatically dis
 ## ⚡ Elastic IP Address
 
 Elastic IP Addresses are static, public IPv4 addresses designed for dynamic cloud computing. They are associated with your AWS account and can be used to mask the failure of an instance or software by remapping the address to another instance within the same region.
+
+---
