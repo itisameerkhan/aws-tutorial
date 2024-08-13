@@ -95,3 +95,13 @@ Elastic Load Balancing (ELB) is a service provided by AWS that automatically dis
 Elastic IP Addresses are static, public IPv4 addresses designed for dynamic cloud computing. They are associated with your AWS account and can be used to mask the failure of an instance or software by remapping the address to another instance within the same region.
 
 ---
+
+## ⭐ CPU CREDITS
+
+AWS EC2 has 2 different type of instances: Fixed Performance Instances(e.g. M3, C3 etc) and Burstable Performance Instances (e.g. T2). Fixed Performance Instances provides a consistent CPU performance whereas Burstable Performance Instances provide a baseline CPU performance under normal workload. But when the workload increases Burstable Performance Instances have the ability to burst, i.e. increase the CPU performance.
+
+CPU Credit regulates the amount CPU burst of an instance. You can spend this CPU Credit to increase the CPU performance during the Burst period. Suppose you are operating the instance at 100% of CPU performance for 5 minutes, you will spend 5(i.e. 5*1.0) CPU Credit. Similarly if you run an instance at 50% CPU performance for 5 minutes you will spend 2.5(i.e. 5*0.5) CPU Credits.
+
+CPU Credit Balance is simply the amount of CPU Credit available in your account at any moment.
+
+When you create an instance you will get an initial CPU Credit. In every hour you will get certain amount of CPU credits automatically(this amount depends on the type of instance). If you don't burst the CPU performance the CPU Credit will be added to your CPU Credit Balance of your account. If you are out of CPU Credit(i.e. CPU Credit Balance turns into 0) your instance will work on baseline performance.

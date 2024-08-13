@@ -100,3 +100,5 @@ Scenario:
 
 > [!NOTE]
 > This process refers to scale-down
+
+![demo](../ASSETS/demo6.png)
