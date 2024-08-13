@@ -105,3 +105,54 @@ CPU Credit regulates the amount CPU burst of an instance. You can spend this CPU
 CPU Credit Balance is simply the amount of CPU Credit available in your account at any moment.
 
 When you create an instance you will get an initial CPU Credit. In every hour you will get certain amount of CPU credits automatically(this amount depends on the type of instance). If you don't burst the CPU performance the CPU Credit will be added to your CPU Credit Balance of your account. If you are out of CPU Credit(i.e. CPU Credit Balance turns into 0) your instance will work on baseline performance.
+
+## ⭐ Purchasing Options
+
+Amazon EC2 offers several purchasing options to provide flexibility and cost management for different use cases. Here’s a detailed explanation of the purchasing options available:
+
+### 1. **On-Demand Instances**
+- **Description**: On-Demand Instances allow you to pay for compute capacity by the hour or second, with no long-term commitments or upfront payments. This option provides the highest level of flexibility.
+- **Use Case**: Ideal for applications with short-term, spiky, or unpredictable workloads that cannot be interrupted.
+
+### 2. **Reserved Instances (RIs)**
+- **Description**: Reserved Instances provide a significant discount (up to 75%) compared to On-Demand pricing. In exchange for a commitment to a one-year or three-year term, you receive a lower hourly rate.
+- **Types**:
+  - **Standard RIs**: Offer the most significant discount but are less flexible in terms of instance types.
+  - **Convertible RIs**: Offer a lower discount but allow you to change the instance family, OS, and tenancy during the term.
+  - **Scheduled RIs**: Allow you to purchase instances that are available to run for specific periods (e.g., a few hours a week).
+- **Use Case**: Best for steady-state usage and predictable workloads.
+
+### 3. **Savings Plans**
+- **Description**: Savings Plans provide a flexible pricing model offering lower prices on EC2, regardless of instance family, region, or OS, in exchange for a commitment to a consistent amount of usage (measured in $/hour) for a one-year or three-year term.
+- **Types**:
+  - **Compute Savings Plans**: Provide the most flexibility and apply to any EC2 usage.
+  - **EC2 Instance Savings Plans**: Apply to usage of a specific instance family in a chosen region.
+- **Use Case**: Suitable for predictable usage but with some variability in instance types and regions.
+
+### 4. **Spot Instances**
+- **Description**: Spot Instances allow you to bid on unused EC2 capacity at a significantly reduced cost (up to 90% off On-Demand prices). However, they can be terminated by AWS with little notice if the capacity is needed for On-Demand instances.
+- **Use Case**: Ideal for fault-tolerant, flexible applications like batch processing, big data analysis, and testing.
+
+### 5. **Dedicated Hosts**
+- **Description**: Dedicated Hosts provide physical servers with EC2 instance capacity fully dedicated to your use. They enable you to use your existing software licenses, including Windows Server, SQL Server, and SUSE Linux Enterprise Server.
+- **Use Case**: Suitable for regulatory requirements, licensing requirements, or strong isolation needs.
+
+### 6. **Dedicated Instances**
+- **Description**: Dedicated Instances run in a VPC on hardware dedicated to a single customer. They do not provide the same level of isolation as Dedicated Hosts but ensure that instances are physically isolated at the host hardware level.
+- **Use Case**: Useful for workloads requiring isolation from other customers’ workloads for compliance or regulatory reasons.
+
+### 7. **Capacity Reservations**
+- **Description**: Capacity Reservations ensure that you have reserved capacity for your instances in a specific Availability Zone. They can be used in combination with other purchasing options like On-Demand, RIs, or Savings Plans.
+- **Use Case**: Necessary for applications with immediate capacity needs or for disaster recovery scenarios.
+
+### Summary Table
+
+| **Purchasing Option**   | **Commitment**            | **Discount**          | **Flexibility**                                      | **Best For**                                      |
+|-------------------------|---------------------------|-----------------------|-----------------------------------------------------|--------------------------------------------------|
+| On-Demand Instances     | None                      | None                  | Highest flexibility                                 | Short-term, spiky, or unpredictable workloads     |
+| Reserved Instances      | 1 or 3 years              | Up to 75%             | Standard RIs: Less flexible, Convertible RIs: More flexible | Steady-state usage, predictable workloads         |
+| Savings Plans           | 1 or 3 years              | Up to 72%             | Compute: Most flexible, EC2 Instance: Less flexible | Predictable usage with some variability           |
+| Spot Instances          | None (bidding)            | Up to 90%             | Lowest cost, least predictable                      | Fault-tolerant, flexible applications             |
+| Dedicated Hosts         | 1 or 3 years (optional)   | None                  | Dedicated hardware, highest isolation               | Regulatory/licensing requirements, strong isolation|
+| Dedicated Instances     | None                      | None                  | Physical isolation, lower isolation than Dedicated Hosts | Compliance or regulatory reasons                  |
+| Capacity Reservations   | Duration of reservation   | None                  | Ensures availability                                | Immediate capacity needs, disaster recovery       |
