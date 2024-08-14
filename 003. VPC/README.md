@@ -4,6 +4,11 @@
 <img src="https://miro.medium.com/v2/resize:fit:960/1*NNXkxobbMBxJGxsFy2quYQ.png" />
 </div>
 
+Amazon Web Services (AWS) Virtual Private Cloud (VPC) is a service that allows you to create a private, isolated network within the AWS cloud. With VPC, you can launch resources in a virtual network that you define. VPC provides you with complete control over your virtual networking environment, including IP addressing, subnets, routing tables, and network gateways.
+
+> [!NOTE]
+> A VPC is a virtual network that closely resembles a traditional network that you'd operate in your own data center. After you create a VPC
+
 ## ⭐ IP Address
 
 An IP address (Internet Protocol address) is a unique identifier assigned to each device connected to a computer network that uses the Internet Protocol for communication. It serves two main functions: identifying the host or network interface and providing the location of the host in the network.
@@ -25,9 +30,12 @@ An IP address (Internet Protocol address) is a unique identifier assigned to eac
 
 ## ⭐ CIDR (Classless Inter Domain Routing)
 
-CIDR (Classless Inter-Domain Routing) is a method for allocating IP addresses and IP routing. It was introduced to replace the old system of IP address classes (A, B, C) and to improve the allocation of IP addresses.
+“CIDR” stands for Classless Inter-Domain Routing. In AWS VPC, a CIDR block is the IP address block from which private IPv4 addresses and public IPv4 addresses are allocated when you create a VPC. The CIDR block can range from /28 (16 IP addresses) to /16 (65,536 IP addresses). It represents a network segment and is associated with a network boundary. Upon creation, you cannot change the CIDR block of your VPC, but you can add additional CIDR blocks to it if needed. A VPC’s CIDR block should not overlap with any of the existing network’s CIDR blocks.
+
 
 ### ⚡ CIDR Notation
+
+CIDR is a notation for describing blocks of IP addresses and is used heavily in various networking configurations. IP addresses contain 4 octets, each consisting of 8 bits giving values between 0 and 255. The decimal value that comes after the slash is the number of bits consisting of the routing prefix. This in turn can be translated into a netmask, and also designates how many available addresses are in the block.
 
 CIDR notation is a way to represent IP addresses and their associated routing prefix. An IP address is followed by a slash (/) and a number which specifies the length of the subnet mask.
 
@@ -43,7 +51,7 @@ IP_address/Subnet_prefix_length
 
 `10.0.0.0/24`: --> `10.0.0.0` to `10.0.0.255`
 
-![demo](../ASSETS/demo1.png)
+![demo](../ASSETS/demo7.png)
 
 
 Here is a table showing the IP ranges from `10.0.0.0/32` to `10.0.0.0/0` along with the total number of IPs for each range:
