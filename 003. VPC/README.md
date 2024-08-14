@@ -193,12 +193,26 @@ Here is a table showing the IP ranges from `10.0.0.0/32` to `10.0.0.0/0` along w
 
 An Internet Gateway is a horizontally scaled, redundant, and highly available AWS-managed component that enables communication between instances in a VPC and the internet. It provides a target in your VPC route tables for internet-routable traffic, and it performs network address translation (NAT) for instances that have been assigned public IP addresses.
 
-251
-NAT Gateway
+![demo](../ASSETS/demo8.png)
+![demo](../ASSETS/demo9.png)
 
-![demo](../ASSETS/demo2.png)
 
-*nat 
-elastic ip
-ec2
-vpc*
+## ⭐ SUBNETS
+
+> [!NOTE]
+> A subnet is a range of IP addresses in your VPC. A subnet must reside in a single Availability Zone. After you add subnets, you can deploy AWS resources in your VPC.
+
+Subnets or subnetworks in Amazon VPC (Virtual Private Cloud) are divisions of a VPC’s IP address range. You can launch Amazon Elastic Compute Cloud (Amazon EC2) instances into a selected subnet. When you create a subnet, you specify the CIDR block for the subnet, which is a subset of the VPC CIDR block. Each subnet must be associated with a route table, which controls the traffic flow between the subnets. There are two types of subnets: public and private. A public subnet is one in which the associated route table directs the subnet to the Internet Gateway (IGW) of the VPC. A private subnet does not have a route to the IGW and hence has no direct route to the internet.
+
+## ⭐ INTERNET GATEWAY
+
+An Internet Gateway is a redundant, horizontally scalable component in AWS that performs bi-directional routing between a VPC and the Internet. It serves two purposes; routing outbound traffic from the VPC to the internet (NAT), and routing inbound traffic from the Internet to the VPC. It’s automatically highly available and provides bandwidth and redundancy across all AWS Regions. It becomes associated with a VPC upon creation, and cannot be detached or attached to another VPC once created. Security to and from the Internet Gateway can be controlled using route tables and security groups or network ACLs.
+
+## ⭐ SECURITY GROUPS
+
+Security Groups in AWS act as a virtual firewall for your instance to control inbound and outbound traffic. When you launch an instance in a VPC, you can assign up to five security groups to the instance. Security Groups are stateful — if you send a request from your instance, the response traffic for that request is allowed to flow in regardless of inbound security group rules. You can specify allow rules, but not deny rules. You can specify separate rules for inbound and outbound traffic. Therefore, if you need to allow specific communication between your instances, you’ll need to configure both outbound rules for the sender security group and inbound rules for the receiver security group.
+
+## ⭐ NAT GATEWAY
+
+A network address translation (NAT) gateway enables instances in a private subnet to connect to the internet or other AWS services while preventing the internet from initiating connections with the instances.
+
