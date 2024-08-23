@@ -102,3 +102,23 @@ Scenario:
 > This process refers to scale-down
 
 ![demo](../ASSETS/demo6.png)
+
+---
+
+## ⭐ Autoscaling an EC2 instance for High Availability and stress testing
+
+1. Create a VPC with cidr 10.10.0.0/16
+
+2. Create three public subnets with 10.10.1.0/24 & 10.10.2.0/24 & 10.10.3.0/24
+
+3. Create an autoscaling group using t2.micro instances. All instances should have apache installed on each instance with the ability to check any random IP address and be able to produce a test page. Ensure the autoscaling group is using the public subnets from #2.
+
+4. The autoscaling min and max should be 2 and 5.
+
+5. Create an Application Load Balancer to distribute traffic to the autoscaling group.
+
+6. Create web server security group that allows inbound traffic from HTTP from your Application Load Balancer.
+
+7. Create a load balancer security group that allows inbound traffic from HTTP from 0.0.0.0/0.
+
+![demo](../ASSETS/demo11.png)
