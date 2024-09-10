@@ -69,3 +69,32 @@ I have used two EC2 instance of AMZ2 Linux. First one is the web server we will 
 * open the port 80 for Security Group since it is a web server.
 
 * Attach the Role s3-ec2-full to this instance
+
+* SSH to the Instance and su to root and execute the command below. This will download the CodeDeply agent software and install. Make sure the you don't change the directory during the process
+
+```bash
+yum update
+
+yum install ruby-y
+
+yum install wget -y
+
+wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install
+
+chmod +x install
+
+./install auto
+
+service codedeploy-agent status
+```
+
+## ⭐ 4- Create the code from Developer machine
+
+> [!NOTE]
+> you may copy the contents from this document to create code. scripts should be given execute permissions.
+
+*  SSH to developer machine. I have su to root and a created a directory `/root/deploy_dir`
+
+* Make sure that zip file of the of the code and its extracted directory is kept inside the `directory/root/deploy_dir`. my application name is `sampleapp`.
+
+* Let us visit the code now. The output shows a sampleapp directory which is extracted from the code `sampleapp.zip`
