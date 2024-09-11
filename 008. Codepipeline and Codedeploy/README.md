@@ -98,3 +98,91 @@ service codedeploy-agent status
 * Make sure that zip file of the of the code and its extracted directory is kept inside the `directory/root/deploy_dir`. my application name is `sampleapp`.
 
 * Let us visit the code now. The output shows a sampleapp directory which is extracted from the code `sampleapp.zip`
+
+```cmd
+[root@ip-172-30-0-178 deploy_dir]# ls
+
+sampleapp sampleapp.zip
+```
+
+* Listing all file and directories in the code
+
+```cmd 
+[root@ip-172-30-0-178 deploy_dir]# ls -R
+
+sampleapp sampleapp.zip
+
+./sampleapp:
+
+appspec.yml index.html scripts
+
+./sampleapp/scripts:
+
+httpd_install.sh httpd_start.sh httpd_stop.sh
+```
+
+The code should contain a file appspec.yml. The files: section says what are files to be copied in which directory of the destination machine. I want to copy `index.html` to `/var/www/html`. BeforeInstall: section says what action must be done before install application in my case before copying the file I wanted httpd rpm package has to be installed.
+
+```cmd
+[root@ip-172-30-0-178 deploy_dir]# cat sampleapp/appspec.yml
+
+version: 0.0
+
+os: linux
+
+files:
+
+- source: /index.html
+
+destination: /var/www/html/
+
+hooks:
+
+BeforeInstall:
+
+location: scripts/httpd_install.sh
+
+timeout: 300
+
+runas: root
+
+- location: scripts/httpd_start.sh
+
+timeout: 300
+
+runas: root
+
+ApplicationStop:
+
+location: scripts/httpd_stop.sh
+
+timeout: 300
+
+runas: root
+```
+
+* Let us see the contents of script files
+
+```cmd
+[root@ip-172-30-0-178 deploy_dir]# cat sampleapp/scripts/httpd_install.sh
+
+#!/bin/bash
+
+yum install -y httpd
+
+[root@ip-172-30-0-178 deploy_dir]# cat sampleapp/scripts/httpd_start.sh
+
+#!/bin/bash
+
+systemctl start httpd
+
+systemctl enable httpd
+
+[root@ip-172-30-0-178 deploy_dir]# cat sampleapp/scripts/httpd_stop.sh
+
+#!/bin/bash
+
+systemctl stop httpd
+
+systemctl disable httpd
+```
