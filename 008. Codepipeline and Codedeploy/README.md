@@ -186,3 +186,68 @@ systemctl stop httpd
 
 systemctl disable httpd
 ```
+
+```cmd
+[root@ip-172-30-0-178 sampleapp]# cat index.html 
+
+<html> <h2> Sample App Version 1 </h2> </html>
+```
+
+
+
+## ⭐ 5 Create Application & Push the code to S3 bucket
+
+* Create S3 bucket for uploading the code, I have named it as `gir-sampleapp`
+
+* Change directory to sampleapp developer machine and create a codedeploy application.
+
+Execute the command below
+
+```cmd
+aws deploy create-application--application-name sampleapp
+```
+
+* Now upload the code to S3 by the executing the command below. Directory of execution is important.
+
+```cmd
+aws deploy push --application-name sampleapp --s3-location s3://gir-sampleapp/sampleapp.zip
+```
+
+* Now browse the s3 bucket to see that sampleapp.zip is present.
+
+## ⭐ 6 Create Deployment Group to include webserver
+
+* Login to Codedeploy AWS web console
+
+* Select sampleapp and click Create Deployment Group from Deployment Groups tab.
+
+* Enter the values like below and leave the other parameters default
+
+```cmd
+Enter a deployment group name: mygrp
+
+Choose a service role: cdrole
+
+Deployment type: in-place
+
+Environment configuration: choose Amazon EC2 instances
+
+Key as AppName Value as SampleApp
+
+Load balancer: uncheck Enable load balancing
+```
+
+## ⭐ 7 Create Deployment which pushes code to the webserver
+
+
+In the sampleapp click Create Deployment. Enter values like below. Other parameter can can be kept default
+
+```cmd
+Deployment group: mygrp
+
+Revision type: My application is stored in Amazon S3
+
+Revision location: s3://select_location_from_list
+```
+
+Click Create Deployment to finish
