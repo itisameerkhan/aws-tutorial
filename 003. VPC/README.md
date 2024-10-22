@@ -4,6 +4,8 @@
 <img src="https://miro.medium.com/v2/resize:fit:960/1*NNXkxobbMBxJGxsFy2quYQ.png" />
 </div>
 
+<br>
+
 Amazon Web Services (AWS) Virtual Private Cloud (VPC) is a service that allows you to create a private, isolated network within the AWS cloud. With VPC, you can launch resources in a virtual network that you define. VPC provides you with complete control over your virtual networking environment, including IP addressing, subnets, routing tables, and network gateways.
 
 > [!NOTE]
@@ -205,6 +207,9 @@ An Internet Gateway is a horizontally scaled, redundant, and highly available AW
 Subnets: A subnet is a range of IP addresses in your VPC. You can launch resources, such as EC2 instances and RDS databases, in a subnet. You can also assign different subnets to different availability zones to achieve high availability and fault tolerance.
 
 Subnets or subnetworks in Amazon VPC (Virtual Private Cloud) are divisions of a VPC’s IP address range. You can launch Amazon Elastic Compute Cloud (Amazon EC2) instances into a selected subnet. When you create a subnet, you specify the CIDR block for the subnet, which is a subset of the VPC CIDR block. Each subnet must be associated with a route table, which controls the traffic flow between the subnets. There are two types of subnets: public and private. A public subnet is one in which the associated route table directs the subnet to the Internet Gateway (IGW) of the VPC. A private subnet does not have a route to the IGW and hence has no direct route to the internet.
+
+>[!IMPORTANT]
+> A subnet must reside in a single Availability Zone
 
 ## ⭐ ROUTE TABLES
 
