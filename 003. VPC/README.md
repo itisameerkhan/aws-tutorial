@@ -215,6 +215,8 @@ Subnets or subnetworks in Amazon VPC (Virtual Private Cloud) are divisions of a 
 
 Route Tables: A route table is a set of rules that determines how traffic is directed in your VPC. You can create multiple route tables and assign them to different subnets to control the flow of traffic.
 
+In AWS, a route table is like a map for your VPC (Virtual Private Cloud). It tells your servers (like EC2 instances) where to send their network traffic, depending on where it’s trying to go.
+
 
 ## ⭐ INTERNET GATEWAY
 
