@@ -210,13 +210,12 @@ Subnets or subnetworks in Amazon VPC (Virtual Private Cloud) are divisions of a 
 
 >[!IMPORTANT]
 > A subnet must reside in a single Availability Zone
-
+ 
 ## ⭐ ROUTE TABLES
 
 Route Tables: A route table is a set of rules that determines how traffic is directed in your VPC. You can create multiple route tables and assign them to different subnets to control the flow of traffic.
 
 In AWS, a route table is like a map for your VPC (Virtual Private Cloud). It tells your servers (like EC2 instances) where to send their network traffic, depending on where it’s trying to go.
-
 
 ## ⭐ INTERNET GATEWAY
 
@@ -234,3 +233,6 @@ Security Groups in AWS act as a virtual firewall for your instance to control in
 
 A network address translation (NAT) gateway enables instances in a private subnet to connect to the internet or other AWS services while preventing the internet from initiating connections with the instances.
 
+A NAT gateway is a Network Address Translation (NAT) service. You can use a NAT gateway so that instances in a private subnet can connect to services outside your VPC but external services cannot initiate a connection with those instances.
+
+---
