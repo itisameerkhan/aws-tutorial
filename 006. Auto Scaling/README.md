@@ -36,6 +36,9 @@ The OSI (Open Systems Interconnection) model is a conceptual framework used to u
 
 * **Industry Adoption**: 98%
 
+
+Application Load Balancers (ALB) in AWS (Amazon Web Services) are part of the Elastic Load Balancing (ELB) service that helps distribute incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, and IP addresses.
+
 ![demo](https://miro.medium.com/v2/resize:fit:1400/1*JKv06SJiCDJqExr7dUBCyA.jpeg)
 
 
