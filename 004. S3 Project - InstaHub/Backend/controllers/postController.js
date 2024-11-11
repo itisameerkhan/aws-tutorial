@@ -35,6 +35,7 @@ export const newPostFunction = async (req, res, next) => {
       imageName: imageName,
     });
 
+    
     res.json({
       success: true,
       message: "Data created succcessfully",
