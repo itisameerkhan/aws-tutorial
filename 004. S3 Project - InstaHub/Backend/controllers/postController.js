@@ -59,7 +59,7 @@ export const deletePostFunction = async (req, res, next) => {
     const post = await Bucket.findById(id);
 
     const params = {
-      Bucket: "ameerkhan-bucket-nodejs",
+      Bucket: "",
       Key: post.imageName,
     };
     const command = new DeleteObjectCommand(params);
