@@ -17,15 +17,6 @@ export const newPostFunction = async (req, res, next) => {
     const command = new PutObjectCommand(params);
     const response = await s3.send(command);
 
-    //get image file
-    // const paramsURL = {
-    //   Bucket: "ameerkhan-bucket-nodejs",
-    //   Key: imageName,
-    // };
-
-    // const commandURL = new GetObjectCommand(params);
-    // const url = await getSignedUrl(s3, commandURL, { expiresIn: 2000 });
-
     const publicURL = `https://ameerkhan-bucket-nodejs.s3.us-east-2.amazonaws.com/${imageName}`;
 
     await Bucket.create({
